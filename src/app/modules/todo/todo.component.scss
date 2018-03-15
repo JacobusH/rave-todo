@@ -1,3 +1,11 @@
 .item-name {
   color:pink;
 }
+
+.item {
+  margin: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 0.4s ease-in-out;
+  border:blue;
+}

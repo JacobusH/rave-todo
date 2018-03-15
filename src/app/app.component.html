@@ -1,2 +1,6 @@
-<rave-todo [itemName]="'My Item Name'" (itemNameEmitted)="test = $event"></rave-todo> 
-  {{ test }}
+<rave-todo 
+  [items]="itemObby"
+  [listName]="'My Item Name'" 
+  (itemNameEmitted)="emittedName = $event">
+</rave-todo> 
+{{ emittedName }}
