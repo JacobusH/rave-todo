@@ -3,6 +3,7 @@ export interface RaveTodoItem {
   description?: string;
   state:RaveTodoItemEnum;
   priority: number;
+  children: Array<RaveTodoItem>;
   createdAt: Date;
   updatedAt: Date;
 }

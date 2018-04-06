@@ -1,11 +1,20 @@
 <span class="item-name">{{ listName }}</span>
 <button (click)="myNameEmitted(listName)" >Le Button</button>
+<button (click)="addElement()">Add Element</button>
 
 <div class="drag-container" [dragula]="'test-bag'">
 <div class="item" *ngFor="let item of items | async" >
+  <button (click)="addChild(item)">Add Child</button>
   <div class="title">{{ item.title }}</div>
   <div class="desc">{{ item.description }}</div >
   <span class="state">{{ item.state }}</span>
+  <div class="drag-container" [dragula]="'test-bag'">
+    <div *ngFor="let child of item.children">
+        <div class="title">{{ child.title }}</div>
+        <div class="desc">{{ child.description }}</div >
+        <span class="state">{{ child.state }}</span>
+    </div>
+  </div>
 </div>
 </div> 
 

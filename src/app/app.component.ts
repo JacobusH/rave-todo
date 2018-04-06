@@ -20,6 +20,7 @@ export class AppComponent implements OnInit  {
       description: "desc1",
       state: RaveTodoItemEnum.InProgress,
       priority: 10,
+      children: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
     };
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit  {
       description: "desc2",
       state: RaveTodoItemEnum.Testing,
       priority: 11,
+      children: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
     };

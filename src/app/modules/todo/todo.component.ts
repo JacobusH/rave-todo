@@ -37,4 +37,34 @@ export class TodoComponent implements OnInit {
     });
   }
 
+  addElement() {
+    let testItem:RaveTodoItem = {
+      title: "test",
+      description: "testdesc",
+      state: RaveTodoItemEnum.InProgress,
+      priority: 1,
+      children: new Array<RaveTodoItem>(),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+
+    this.items.subscribe(items => {
+      items.push(testItem);
+    });
+  }
+
+  addChild(item: RaveTodoItem) {
+    let testChild:RaveTodoItem = {
+      title: "testChild",
+      description: "testdesc child",
+      state: RaveTodoItemEnum.InProgress,
+      priority: 1,
+      children: new Array<RaveTodoItem>(),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+
+    item.children.push(testChild);
+  }
+
 }
