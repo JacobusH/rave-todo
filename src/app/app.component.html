@@ -1,4 +1,8 @@
-<rave-todo 
-  [items]="itemArr"
-  (itemNameEmitted)="emittedName = $event">
-</rave-todo> 
+<div class="list-container">
+  <div class="list" *ngFor="let list of lists">
+    <rave-todo-list
+      [items]="list"
+      (itemNameEmitted)="emittedName = $event">
+    </rave-todo-list> 
+  </div>
+</div>

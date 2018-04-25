@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RaveTodoItem, RaveTodoItemEnum } from './modules/todo/todo.model';
+import { RaveTodoItem, RaveTodoItemEnum } from './modules/todo/todo-list.model';
 import { Observable } from 'rxjs';
 import "rxjs/add/observable/of";
 
@@ -14,8 +14,11 @@ export class AppComponent implements OnInit  {
   itemObby: Observable<RaveTodoItem[]>;
   emittedName;
 
+  lists: Array<RaveTodoItem[]>;
+
   constructor() {
-    let item1:RaveTodoItem = {
+    this.lists = new Array<RaveTodoItem[]>();
+    this.lists.push([{
       title: "title1",
       description: "desc1",
       state: RaveTodoItemEnum.InProgress,
@@ -23,17 +26,34 @@ export class AppComponent implements OnInit  {
       children: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
-    };
-    let item2:RaveTodoItem = {
+    }]);
+    this.lists.push([{
       title: "title2",
       description: "desc2",
-      state: RaveTodoItemEnum.Testing,
-      priority: 11,
+      state: RaveTodoItemEnum.InProgress,
+      priority: 10,
       children: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
-    };
-    this.itemArr.push(item1, item2);
+    }]);
+    this.lists.push([{
+      title: "title3",
+      description: "desc3",
+      state: RaveTodoItemEnum.InProgress,
+      priority: 10,
+      children: new Array<RaveTodoItem>(),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }]);
+    this.lists.push([{
+      title: "title4",
+      description: "desc4",
+      state: RaveTodoItemEnum.InProgress,
+      priority: 10,
+      children: new Array<RaveTodoItem>(),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }]);
 
     // this.itemObby = Observable.of(this.itemArr);
     

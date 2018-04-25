@@ -13,7 +13,7 @@
         <button (click)="addChild(item)">Add Child</button>
     </div>
   </div>
-  <rave-todo [items]="item.children" *ngIf="item.children != null"></rave-todo>
+  <rave-todo-list [items]="item.children" *ngIf="item.children != null"></rave-todo-list>
 </div>
 </div>
 

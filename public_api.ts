@@ -1,1 +1,1 @@
-export * from './src/app/modules/todo/todo.module';
+export * from './src/app/modules/todo/todo-list.module';

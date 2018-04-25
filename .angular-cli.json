@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "rave-todo"
+    "name": "rave-todo-list"
   },
   "apps": [
     {

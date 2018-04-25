@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RaveTodoItem, RaveTodoItemEnum } from './todo.model';
+import { RaveTodoItem, RaveTodoItemEnum } from './todo-list.model';
 import "rxjs/add/observable/of";
 
 @Component({
-  selector: 'rave-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  selector: 'rave-todo-list',
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.scss']
 })
 export class TodoComponent implements OnInit {
   @Input('items') items: Observable<RaveTodoItem[]>;
@@ -17,7 +17,7 @@ export class TodoComponent implements OnInit {
 
   constructor() { 
     
-  } 
+  }  
 
   ngOnInit() {
     // this.orderItemsByPriority();
