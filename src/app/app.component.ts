@@ -35,7 +35,7 @@ export class AppComponent implements OnInit  {
     };
     this.itemArr.push(item1, item2);
 
-    this.itemObby = Observable.of(this.itemArr);
+    // this.itemObby = Observable.of(this.itemArr);
     
   }
 

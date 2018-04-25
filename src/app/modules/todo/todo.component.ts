@@ -9,7 +9,6 @@ import "rxjs/add/observable/of";
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  @Input('listName') listName: string = 'New Name';
   @Input('items') items: Observable<RaveTodoItem[]>;
   @Output() itemNameEmitted: EventEmitter<string> = new EventEmitter;
   @Output() itemStatusChanged: EventEmitter<string> = new EventEmitter;
@@ -21,7 +20,7 @@ export class TodoComponent implements OnInit {
   } 
 
   ngOnInit() {
-    this.orderItemsByPriority();
+    // this.orderItemsByPriority();
   }
 
   myNameEmitted(name: string) {
