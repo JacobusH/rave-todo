@@ -19,8 +19,8 @@ export class AppComponent implements OnInit  {
   constructor() {
     this.lists = new Array<RaveTodoItem[]>();
     this.lists.push([{
-      title: "title1",
-      description: "desc1",
+      title: "Work",
+      description: "",
       state: RaveTodoItemEnum.InProgress,
       priority: 10,
       children: new Array<RaveTodoItem>(),

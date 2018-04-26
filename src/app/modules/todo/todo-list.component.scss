@@ -9,3 +9,25 @@
   transition: opacity 0.4s ease-in-out;
   border:blue;
 }
+
+.content {
+  display:flex;
+  align-items: center;
+
+  .left {
+    flex-basis: 15%;
+  }
+  
+  .middle {
+    flex-basis:30%;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  
+  .right {
+    flex-basis:15%;
+  }
+}
+
+
