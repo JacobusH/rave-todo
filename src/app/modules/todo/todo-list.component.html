@@ -5,15 +5,19 @@
         <mat-checkbox></mat-checkbox>
     </div>
     <div class="middle">
-        <div class="title">{{ item.title }}</div>
-        <div class="desc">{{ item.description }}</div>
-        <div class="state">{{ item.state }}</div>
+        <!-- <input type="text" [value]="item.title" class="title" /> -->
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Title" value="Sushi" (change)="titleChanged($event)">
+          </mat-form-field>
     </div>
     <div class="right">
-        <button (click)="addChild(item)">Add Child</button>
+        <fa class="fa" name="plus" (click)="addChild(item)"></fa>
     </div>
+  </div>
+  <div class="content-hidden" *ngIf="showHiddenContent">
+    <div class="desc">{{ item.description }}</div>
+    <div class="state">{{ item.state }}</div>
   </div>
   <rave-todo-list [items]="item.children" *ngIf="item.children != null"></rave-todo-list>
 </div>
 </div>
-

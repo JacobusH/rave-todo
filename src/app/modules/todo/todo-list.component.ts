@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RaveTodoItem, RaveTodoItemEnum } from './todo-list.model';
+import { DragulaService } from 'ng2-dragula';
 import "rxjs/add/observable/of";
 
 @Component({
@@ -10,13 +11,14 @@ import "rxjs/add/observable/of";
 })
 export class TodoComponent implements OnInit {
   @Input('items') items: Observable<RaveTodoItem[]>;
+  @Input('showHiddenContent') showHiddenContent:boolean = false;
   @Output() itemNameEmitted: EventEmitter<string> = new EventEmitter;
   @Output() itemStatusChanged: EventEmitter<string> = new EventEmitter;
   @Output() itemOrderChanged: EventEmitter<string> = new EventEmitter;
- 
+  
 
-  constructor() { 
-    
+  constructor(private dragService: DragulaService) { 
+
   }  
 
   ngOnInit() {
