@@ -10,8 +10,8 @@
           </mat-form-field>
     </div>
     <div class="right">
-        <fa class="fa" name="plus" (click)="addChild(item)"></fa>
-        <span *ngIf="item.children.length">
+        <fa class="clickable" name="plus" (click)="addChild(item)"></fa>
+        <span class="clickable" *ngIf="item.children.length">
           <fa *ngIf="list.isCollapsed" class="fa" name="caret-down" (click)="collapse(item)"></fa>
           <fa *ngIf="!list.isCollapsed" class="fa" name="caret-up" (click)="collapse(item)"></fa>
         </span>

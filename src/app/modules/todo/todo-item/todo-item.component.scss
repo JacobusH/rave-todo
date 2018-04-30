@@ -37,7 +37,7 @@
   .right {
     flex-basis:10%;
 
-    > .fa {
+    .clickable {
       cursor: pointer;
     }
   }

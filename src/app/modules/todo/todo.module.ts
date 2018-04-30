@@ -5,6 +5,7 @@ import { DragulaModule } from 'ng2-dragula';
 import { MatCheckboxModule, MatInputModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   imports: [
@@ -17,9 +18,11 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
   ],
   declarations: [
     TodoItemComponent,
+    TodoListComponent,
   ],
   exports: [
     TodoItemComponent,
+    TodoListComponent,
   ]
 })
 export class TodoModule { }

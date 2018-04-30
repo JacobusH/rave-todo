@@ -18,7 +18,7 @@ export class TodoItemComponent implements OnInit {
   @Output() itemOrderChanged: EventEmitter<string> = new EventEmitter;
   
   constructor(private dragService: DragulaService) { 
-
+    
   }  
 
   ngOnInit() { 
