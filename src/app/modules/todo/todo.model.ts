@@ -1,21 +1,12 @@
 import { Observable } from 'rxjs';
 
-export interface RaveTodoList {
-  title: string; 
-  description?: string;
-  items: Array<RaveTodoItem>
-  state:RaveTodoItemEnum;
-  priority: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
 export interface RaveTodoItem {
   title: string; 
   description?: string;
   state:RaveTodoItemEnum;
   priority: number;
-  items: Array<RaveTodoItem>;
+  children: Array<RaveTodoItem>;
+  isCollapsed: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

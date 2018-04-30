@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from '../todo.model';
+import { RaveTodoItem, RaveTodoItemEnum } from '../todo.model';
 import { DragulaService } from 'ng2-dragula';
 import "rxjs/add/observable/of";
 
@@ -10,13 +10,13 @@ import "rxjs/add/observable/of";
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
+  @Input('testArr') testArr: number[];
   @Input('list') list: RaveTodoItem;
   @Input('showHiddenContent') showHiddenContent:boolean = false;
   @Output() itemNameEmitted: EventEmitter<string> = new EventEmitter;
   @Output() itemStatusChanged: EventEmitter<string> = new EventEmitter;
   @Output() itemOrderChanged: EventEmitter<string> = new EventEmitter;
   
-
   constructor(private dragService: DragulaService) { 
 
   }  
@@ -38,35 +38,28 @@ export class TodoItemComponent implements OnInit {
   //   });
   // }
 
-  addElement() {
-    let testItem:RaveTodoItem = {
-      title: "test",
-      description: "testdesc",
-      state: RaveTodoItemEnum.InProgress,
-      priority: 1,
-      items: new Array<RaveTodoItem>(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
-
-    // this.list.items.subscribe(items => {
-    //   items.push(testItem);
-    // });
-    this.list.items.push(testItem);
-  }
-
   addChild(item: RaveTodoItem) {
     let testChild:RaveTodoItem = {
       title: "testChild",
       description: "testdesc child",
       state: RaveTodoItemEnum.InProgress,
       priority: 1,
-      items: new Array<RaveTodoItem>(),
+      children: new Array<RaveTodoItem>(),
+      isCollapsed: false,
       createdAt: new Date(),
       updatedAt: new Date()
     };
+    
+    item.children.push(testChild);
 
-    item.items.push(testChild);
+    // item.children = [...item.children];
+    // this.list.children = [...this.list.children];
+
+    // this.list.children = [...item.children];    
+  }
+
+  collapse(item: RaveTodoItem) {
+    this.list.isCollapsed = !this.list.isCollapsed;
   }
 
 }

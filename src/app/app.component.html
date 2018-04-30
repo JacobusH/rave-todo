@@ -1,9 +1,17 @@
-<div class="list-container" style="display: flex; flex-flow: row wrap">
-  <rave-todo-list
+<!-- <div class="list-container" style="display: flex; flex-flow: row wrap">
+  <rave-todo-item
     class="list" 
     style="flex-basis: 50%;"
     *ngFor="let list of lists" 
-    [list]="list">
-  </rave-todo-list> 
+    [list]="list"
+    [testArr]="[1,2,3]">
+  </rave-todo-item> 
 </div>
-  
+   -->
+
+   <rave-todo-item
+    class="list" 
+    style="flex-basis: 50%;"
+    [list]="list"
+    [testArr]="[1,2,3]">
+  </rave-todo-item> 

@@ -1,5 +1,5 @@
 <div class="drag-container" [dragula]="'test-bag'">
-<div class="item" *ngFor="let item of list.items">
+<div class="item" *ngFor="let item of list">
   <div class="content" style="display:flex;">
     <div class="left">
         <mat-checkbox></mat-checkbox>
@@ -11,12 +11,18 @@
     </div>
     <div class="right">
         <fa class="fa" name="plus" (click)="addChild(item)"></fa>
+        <span *ngIf="item.children.length">
+          <fa *ngIf="list.isCollapsed" class="fa" name="caret-down" (click)="collapse(item)"></fa>
+          <fa *ngIf="!list.isCollapsed" class="fa" name="caret-up" (click)="collapse(item)"></fa>
+        </span>
+        <span *ngIf="item.children.length" class="child-count">({{item.children.length}})</span>
     </div>
   </div>
   <div class="content-hidden" *ngIf="showHiddenContent">
     <div class="desc">{{ item.description }}</div>
     <div class="state">{{ item.state }}</div>
   </div>
-  <rave-todo-item [list]="item.items" *ngIf="item.items != null"></rave-todo-item>
+  <rave-todo-item [list]="item.children" *ngIf="item.children.length && !list.isCollapsed"></rave-todo-item>
 </div>
 </div>
+
