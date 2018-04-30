@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RaveTodoItem, RaveTodoItemEnum } from './modules/todo/todo-list.model';
+import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from './modules/todo/todo.model';
 import { Observable } from 'rxjs';
 import "rxjs/add/observable/of";
 
@@ -9,53 +9,61 @@ import "rxjs/add/observable/of";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit  {
+  lists: Array<RaveTodoList>;
   title = 'app';
-  itemArr: Array<RaveTodoItem> = new Array;
-  itemObby: Observable<RaveTodoItem[]>;
   emittedName;
 
-  lists: Array<RaveTodoItem[]>;
 
   constructor() {
-    this.lists = new Array<RaveTodoItem[]>();
-    this.lists.push([{
-      title: "Work",
-      description: "",
+    let firstItemArr = new Array<RaveTodoItem>();
+    firstItemArr.push({
+      title: "first",
+      description: "testdesc",
       state: RaveTodoItemEnum.InProgress,
-      priority: 10,
-      children: new Array<RaveTodoItem>(),
+      priority: 1,
+      items: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
-    }]);
-    this.lists.push([{
-      title: "title2",
-      description: "desc2",
-      state: RaveTodoItemEnum.InProgress,
-      priority: 10,
-      children: new Array<RaveTodoItem>(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }]);
-    this.lists.push([{
-      title: "title3",
-      description: "desc3",
-      state: RaveTodoItemEnum.InProgress,
-      priority: 10,
-      children: new Array<RaveTodoItem>(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }]);
-    this.lists.push([{
-      title: "title4",
-      description: "desc4",
-      state: RaveTodoItemEnum.InProgress,
-      priority: 10,
-      children: new Array<RaveTodoItem>(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }]);
+    });
 
-    // this.itemObby = Observable.of(this.itemArr);
+    this.lists = new Array<RaveTodoList>();
+    this.lists.push({
+      title: "Work",
+      description: "Stuff for Work",
+      state: RaveTodoItemEnum.InProgress,
+      items: firstItemArr,
+      priority: 1,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+    this.lists.push({
+      title: "Home",
+      description: "Stuff for home",
+      state: RaveTodoItemEnum.InProgress,
+      items: firstItemArr,
+      priority: 2,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+    this.lists.push({
+      title: "School",
+      description: "Stuff for school",
+      state: RaveTodoItemEnum.InProgress,
+      items: firstItemArr,
+      priority: 3,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+    this.lists.push({
+      title: "Play",
+      description: "Stuff for Play",
+      state: RaveTodoItemEnum.InProgress,
+      items: firstItemArr,
+      priority: 4,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+
     
   }
 

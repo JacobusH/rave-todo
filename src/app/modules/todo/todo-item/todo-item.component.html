@@ -1,13 +1,12 @@
 <div class="drag-container" [dragula]="'test-bag'">
-<div class="item" *ngFor="let item of items">
+<div class="item" *ngFor="let item of list.items">
   <div class="content" style="display:flex;">
     <div class="left">
         <mat-checkbox></mat-checkbox>
     </div>
     <div class="middle">
-        <!-- <input type="text" [value]="item.title" class="title" /> -->
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Title" value="Sushi" (change)="titleChanged($event)">
+            <input matInput [value]="item.title" (change)="titleChanged($event)">
           </mat-form-field>
     </div>
     <div class="right">
@@ -18,6 +17,6 @@
     <div class="desc">{{ item.description }}</div>
     <div class="state">{{ item.state }}</div>
   </div>
-  <rave-todo-list [items]="item.children" *ngIf="item.children != null"></rave-todo-list>
+  <rave-todo-item [list]="item.items" *ngIf="item.items != null"></rave-todo-item>
 </div>
 </div>

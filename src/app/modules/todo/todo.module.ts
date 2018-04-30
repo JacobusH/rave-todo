@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { DragulaModule } from 'ng2-dragula';
-import { TodoComponent } from './todo-list.component';
 import { MatCheckboxModule, MatInputModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { TodoItemComponent } from './todo-item/todo-item.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   imports: [
@@ -16,10 +17,12 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     MatInputModule
   ],
   declarations: [
-    TodoComponent,
+    TodoItemComponent,
+    TodoListComponent,
   ],
   exports: [
-    TodoComponent,
+    TodoItemComponent,
+    TodoListComponent,
   ]
 })
 export class TodoModule { }

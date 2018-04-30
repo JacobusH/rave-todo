@@ -1,16 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RaveTodoItem, RaveTodoItemEnum } from './todo-list.model';
+import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from '../todo.model';
 import { DragulaService } from 'ng2-dragula';
 import "rxjs/add/observable/of";
 
 @Component({
-  selector: 'rave-todo-list',
-  templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss']
+  selector: 'rave-todo-item',
+  templateUrl: './todo-item.component.html',
+  styleUrls: ['./todo-item.component.scss']
 })
-export class TodoComponent implements OnInit {
-  @Input('items') items: Observable<RaveTodoItem[]>;
+export class TodoItemComponent implements OnInit {
+  @Input('list') list: RaveTodoItem;
   @Input('showHiddenContent') showHiddenContent:boolean = false;
   @Output() itemNameEmitted: EventEmitter<string> = new EventEmitter;
   @Output() itemStatusChanged: EventEmitter<string> = new EventEmitter;
@@ -21,7 +21,7 @@ export class TodoComponent implements OnInit {
 
   }  
 
-  ngOnInit() {
+  ngOnInit() { 
     // this.orderItemsByPriority();
   }
 
@@ -29,14 +29,14 @@ export class TodoComponent implements OnInit {
     this.itemNameEmitted.next(name);
   }
   
-  orderItemsByPriority() {
-    this.items = this.items.map((data) => {
-      data.sort((a, b) => {
-        return a.priority < b.priority ? -1 : 1;
-      });
-    return data;
-    });
-  }
+  // orderItemsByPriority() {
+  //   this.list = this.list.map((data) => {
+  //     data.sort((a, b) => {
+  //       return a.priority < b.priority ? -1 : 1;
+  //     });
+  //   return data;
+  //   });
+  // }
 
   addElement() {
     let testItem:RaveTodoItem = {
@@ -44,14 +44,15 @@ export class TodoComponent implements OnInit {
       description: "testdesc",
       state: RaveTodoItemEnum.InProgress,
       priority: 1,
-      children: new Array<RaveTodoItem>(),
+      items: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
     };
 
-    this.items.subscribe(items => {
-      items.push(testItem);
-    });
+    // this.list.items.subscribe(items => {
+    //   items.push(testItem);
+    // });
+    this.list.items.push(testItem);
   }
 
   addChild(item: RaveTodoItem) {
@@ -60,12 +61,12 @@ export class TodoComponent implements OnInit {
       description: "testdesc child",
       state: RaveTodoItemEnum.InProgress,
       priority: 1,
-      children: new Array<RaveTodoItem>(),
+      items: new Array<RaveTodoItem>(),
       createdAt: new Date(),
       updatedAt: new Date()
     };
 
-    item.children.push(testChild);
+    item.items.push(testChild);
   }
 
 }
