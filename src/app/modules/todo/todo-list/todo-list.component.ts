@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from '../todo.model';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'rave-todo-list',
@@ -8,10 +9,15 @@ import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from '../todo.model';
 })
 export class TodoListComponent implements OnInit {
   @Input('list') list: RaveTodoList;
-  @Output('change') change: EventEmitter<RaveTodoList> = new EventEmitter<RaveTodoList>();
+  @Output('change') change: EventEmitter<boolean> = new EventEmitter;
   
 
-  constructor() {
+  constructor(private todoService: TodoService) {
+    this.todoService.notificationReceived.subscribe(
+      message => {
+        // do something with message such as access API
+      }
+    );  
   }
 
   ngOnInit() {
@@ -46,11 +52,11 @@ export class TodoListComponent implements OnInit {
     });
 
     event.target.value = "";
-    this.onChange();
+    // this.onChange();
   }
 
   onChange() {
-    this.change.emit(this.list);
+    this.change.emit(true);
   }
 
 }

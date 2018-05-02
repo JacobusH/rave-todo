@@ -6,6 +6,7 @@ import { MatCheckboxModule, MatInputModule  } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoService } from './todo.service';
 
 @NgModule({
   imports: [
@@ -23,6 +24,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
   exports: [
     TodoItemComponent,
     TodoListComponent,
+  ],
+  providers: [
+    TodoService
   ]
 })
 export class TodoModule { }

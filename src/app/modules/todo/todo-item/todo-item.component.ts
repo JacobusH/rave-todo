@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RaveTodoItem, RaveTodoItemEnum } from '../todo.model';
 import { DragulaService } from 'ng2-dragula';
+import { TodoService } from '../todo.service';
 import "rxjs/add/observable/of";
 
 @Component({
@@ -13,11 +14,9 @@ export class TodoItemComponent implements OnInit {
   @Input('testArr') testArr: number[];
   @Input('list') list: RaveTodoItem;
   @Input('showHiddenContent') showHiddenContent:boolean = false;
-  @Output() itemNameEmitted: EventEmitter<string> = new EventEmitter;
-  @Output() itemStatusChanged: EventEmitter<string> = new EventEmitter;
-  @Output() itemOrderChanged: EventEmitter<string> = new EventEmitter;
+  @Output('change') change: EventEmitter<boolean> = new EventEmitter;
   
-  constructor(private dragService: DragulaService) { 
+  constructor(private dragService: DragulaService, private todoService: TodoService) { 
     
   }  
 
@@ -25,8 +24,8 @@ export class TodoItemComponent implements OnInit {
     // this.orderItemsByPriority();
   }
 
-  myNameEmitted(name: string) {
-    this.itemNameEmitted.next(name);
+  onChange() {
+    this.todoService.notify("I have a message");
   }
   
   // orderItemsByPriority() {
@@ -51,15 +50,12 @@ export class TodoItemComponent implements OnInit {
     };
     
     item.children.push(testChild);
-
-    // item.children = [...item.children];
-    // this.list.children = [...this.list.children];
-
-    // this.list.children = [...item.children];    
+    // this.onChange();
   }
 
   collapse(item: RaveTodoItem) {
     this.list.isCollapsed = !this.list.isCollapsed;
+    // this.onChange();
   }
 
 }

@@ -4,7 +4,8 @@
   <!-- <fa *ngIf="list.isCollapsed" class="fa" name="caret-down" (click)="collapse(list)"></fa> -->
   <rave-todo-item
     class="rave-item"
-    [list]="list.children">
+    [list]="list.children"
+    (change)="onChange()">
   </rave-todo-item> 
 
   <div class="new-item">

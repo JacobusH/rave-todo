@@ -3,9 +3,20 @@
   padding: 5px;
   border-radius: 2px;
 
-  /deep/ .mat-form-field-infix {
-    width:280px;
+  /deep/ .mat-form-field {
+
+    .mat-form-field-wrapper {
+      padding-bottom: .75em;
+    }
+    .mat-form-field-infix {
+      width:280px;
+    }
+    .mat-form-field-underline {
+    display: none;
+    }
   }
+
+  
 
   .title {
     // margin-left:25px;
