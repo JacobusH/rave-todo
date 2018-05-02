@@ -1,14 +1,4 @@
-<!-- <div class="list-container" style="display: flex; flex-flow: row wrap">
-  <rave-todo-item
-    class="list" 
-    style="flex-basis: 50%;"
-    *ngFor="let list of lists" 
-    [list]="list"
-    [testArr]="[1,2,3]">
-  </rave-todo-item> 
-</div>
-   -->
-
-   <rave-todo-list
-    [list]="list">
-  </rave-todo-list> 
+<rave-todo-list
+  [list]="list"
+  (change)="onChange($event)">
+</rave-todo-list> 

@@ -40,7 +40,7 @@ export class TodoItemComponent implements OnInit {
 
   addChild(item: RaveTodoItem) {
     let testChild:RaveTodoItem = {
-      title: "testChild",
+      title: "",
       description: "testdesc child",
       state: RaveTodoItemEnum.InProgress,
       priority: 1,

@@ -1,5 +1,17 @@
-{{list.title}}
+<div class="rave-list">
+  <div class="title">{{list.title}}</div>
 
-<rave-todo-item
-[list]="list.children">
-</rave-todo-item> 
+  <!-- <fa *ngIf="list.isCollapsed" class="fa" name="caret-down" (click)="collapse(list)"></fa> -->
+  <rave-todo-item
+    class="rave-item"
+    [list]="list.children">
+  </rave-todo-item> 
+
+  <div class="new-item">
+    <fa class="fa" name="plus"></fa>
+    <mat-form-field class="field-title" floatLabel="never">
+      <input matInput placeholder="New Item" (change)="newItem($event)">
+    </mat-form-field>
+  </div>
+  
+</div>

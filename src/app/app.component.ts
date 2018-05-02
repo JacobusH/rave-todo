@@ -37,5 +37,9 @@ export class AppComponent implements OnInit  {
     
   }
 
+  onChange(list: RaveTodoList) {
+    console.log(list);
+  }
+
 
 }

@@ -5,15 +5,15 @@
         <mat-checkbox></mat-checkbox>
     </div>
     <div class="middle">
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="title">
             <input matInput [value]="item.title" (change)="titleChanged($event)">
           </mat-form-field>
     </div>
     <div class="right">
         <fa class="clickable" name="plus" (click)="addChild(item)"></fa>
         <span class="clickable" *ngIf="item.children.length">
-          <fa *ngIf="list.isCollapsed" class="fa" name="caret-down" (click)="collapse(item)"></fa>
-          <fa *ngIf="!list.isCollapsed" class="fa" name="caret-up" (click)="collapse(item)"></fa>
+          <fa *ngIf="list.isCollapsed" class="fa" name="eye-slash" (click)="collapse(item)"></fa>
+          <fa *ngIf="!list.isCollapsed" class="fa" name="eye" (click)="collapse(item)"></fa>
         </span>
         <span *ngIf="item.children.length" class="child-count">({{item.children.length}})</span>
     </div>

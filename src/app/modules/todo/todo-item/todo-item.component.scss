@@ -27,11 +27,15 @@
   }
   
   .middle {
-    flex-basis:30%;
+    flex-basis:50%;
     display:flex;
     flex-flow: column nowrap;
     align-items: flex-start;
     margin-left: 10px; 
+
+    /deep/ .mat-form-field-infix {
+      width:280px;
+    }
   }
   
   .right {
