@@ -4,12 +4,10 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class TodoService {
+  private notificationSource = new Subject<string>();
+  public notificationReceived = this.notificationSource.asObservable();
 
   constructor() { }
-
-  private notificationSource = new Subject<string>();
-
-  public notificationReceived = this.notificationSource.asObservable();
 
   notify(newMessage: string) {
     this.notificationSource.next(newMessage);

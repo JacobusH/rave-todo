@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from './modules/todo/todo.model';
 import { Observable } from 'rxjs';
+import { v4 as uuid } from 'uuid';
 import "rxjs/add/observable/of";
 
 @Component({
@@ -13,11 +14,13 @@ export class AppComponent implements OnInit  {
 
   constructor() {
     this.list = {
+      id: uuid(),
       title: "This is the title of the List!",
       description: "With an awesome description",
       state: RaveTodoItemEnum.InProgress,
       priority: 1,
       children: new Array<RaveTodoItem>({
+        id: uuid(),
         title: "This is the fist Item!",
         description: "With an awesome description",
         state: RaveTodoItemEnum.InProgress,
@@ -38,7 +41,7 @@ export class AppComponent implements OnInit  {
   }
 
   onChange() {
-    console.log(this.list);
+    // console.log(this.list);
   }
 
 

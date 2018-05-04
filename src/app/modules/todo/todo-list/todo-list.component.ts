@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RaveTodoItem, RaveTodoItemEnum, RaveTodoList } from '../todo.model';
+import { v4 as uuid } from 'uuid';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -26,6 +27,7 @@ export class TodoListComponent implements OnInit {
 
   addChild() {
     let testChild:RaveTodoItem = {
+      id:uuid(),
       title: "new task",
       description: "description",
       state: RaveTodoItemEnum.NotStarted,
@@ -41,6 +43,7 @@ export class TodoListComponent implements OnInit {
 
   newItem(event: any) {
     this.list.children.push({
+      id: uuid(),
       title: event.target.value,
       description: "description",
       state: RaveTodoItemEnum.NotStarted,
@@ -56,7 +59,7 @@ export class TodoListComponent implements OnInit {
   }
 
   onChange() {
-    this.change.emit(true);
+    // this.change.emit(true);
   }
 
 }

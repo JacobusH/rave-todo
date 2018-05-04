@@ -6,7 +6,7 @@
     </div>
     <div class="middle">
         <mat-form-field class="title" floatLabel="never">
-            <input matInput placeholder="New Item" [value]="item.title" (change)="onChange()">
+            <input matInput placeholder="New Item" [value]="item.title" (change)="titleChanged(item)">
           </mat-form-field>
     </div>
     <div class="right">
@@ -16,6 +16,7 @@
           <fa *ngIf="!list.isCollapsed" class="fa" name="eye" (click)="collapse(item)"></fa>
         </span>
         <span *ngIf="item.children.length" class="child-count">({{item.children.length}})</span>
+        <span>{{item.id.slice(30)}}</span>
     </div>
   </div>
   <div class="content-hidden" *ngIf="showHiddenContent">
@@ -24,8 +25,7 @@
   </div>
   <rave-todo-item 
     *ngIf="item.children.length && !list.isCollapsed" 
-    [list]="item.children" 
-    (change)="onChange()">
+    [list]="item.children">
   </rave-todo-item>
 </div>
 </div>
