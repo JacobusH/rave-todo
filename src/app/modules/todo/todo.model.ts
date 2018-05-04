@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 
 export interface RaveTodoItem {
   id: string;
+  parent: RaveTodoItem | RaveTodoList;
   title: string; 
   description?: string;
   state:RaveTodoItemEnum;
@@ -14,6 +15,7 @@ export interface RaveTodoItem {
 
 export interface RaveTodoList {
   id: string;
+  parent: undefined;
   title: string; 
   description?: string;
   state:RaveTodoItemEnum;

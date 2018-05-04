@@ -12,8 +12,8 @@
     <div class="right">
         <fa class="clickable" name="plus" (click)="addChild(item)"></fa>
         <span class="clickable" *ngIf="item.children.length">
-          <fa *ngIf="list.isCollapsed" class="fa" name="eye-slash" (click)="collapse(item)"></fa>
-          <fa *ngIf="!list.isCollapsed" class="fa" name="eye" (click)="collapse(item)"></fa>
+          <fa *ngIf="list.isCollapsed" class="fa" name="eye-slash" (click)="toggleView(item)"></fa>
+          <fa *ngIf="!list.isCollapsed" class="fa" name="eye" (click)="toggleView(item)"></fa>
         </span>
         <span *ngIf="item.children.length" class="child-count">({{item.children.length}})</span>
         <span>{{item.id.slice(30)}}</span>

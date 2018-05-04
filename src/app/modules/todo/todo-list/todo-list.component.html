@@ -1,5 +1,6 @@
 <div class="rave-list">
   <div class="title">{{list.title}}</div>
+  <span>{{list.id}}</span>
 
   <!-- <fa *ngIf="list.isCollapsed" class="fa" name="caret-down" (click)="collapse(list)"></fa> -->
   <rave-todo-item
@@ -15,3 +16,13 @@
   </div>
   
 </div>
+
+<h2>Test</h2>
+<button (click)="addToTest()">Test</button>
+{{test}}
+
+<!-- <h2>History</h2>
+{{undoStack?.length}}
+<div *ngFor="let piece of undoStack">
+  {{piece}}
+</div> -->

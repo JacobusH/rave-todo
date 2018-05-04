@@ -36,6 +36,7 @@ export class TodoItemComponent implements OnInit {
   addChild(item: RaveTodoItem) {
     let testChild:RaveTodoItem = {
       id: uuid(),
+      parent: item,
       title: "",
       description: "testdesc child",
       state: RaveTodoItemEnum.InProgress,
@@ -47,16 +48,16 @@ export class TodoItemComponent implements OnInit {
     };
     
     item.children.push(testChild);
-    this.todoService.notify("New child added: " + testChild.id);
+    this.todoService.notify("New child added: " + testChild.id, item);
   }
 
   titleChanged(item: RaveTodoItem) {
-    this.todoService.notify("Title changed: " + item.id);
+    this.todoService.notify("Title changed: " + item.id, item);
   }
 
-  collapse(item: RaveTodoItem) {
+  toggleView(item: RaveTodoItem) {
     this.list.isCollapsed = !this.list.isCollapsed;
-    this.todoService.notify("Collapsed everything under: " + item.id);
+    this.todoService.notify("Toggled everything under: " + item.id, item);
   }
 
 }
